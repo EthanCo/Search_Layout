@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Search_View">
+        <!--搜索框文字大小(SP)-->
         <attr name="textSizeSearch" format="dimension"  />
+        <!--搜索框字体颜色-->
         <attr name="textColorSearch" format="color" />
+        <!--搜索框提示内容-->
         <attr name="textHintSearch" format="string" />
 
+        <!--搜索框高度 (DP)-->
         <attr name="searchBlockHeight" format="dimension" />
+        <!--搜索框颜色-->
         <attr name="searchBlockColor" format="color" />
+        <!--返回按钮是否可见-->
         <attr name="backVisible" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -1,6 +1,27 @@
 # SearchLayout
-- 作者：Carson_Ho
-- 概述
+- forked from [Carson-Ho/Search_Layout](https://github.com/Carson-Ho/Search_Layout)
+相比源项目优化了  
+- 使用高清图标
+- 可隐藏返回按钮
+- 多屏幕分辨率适配  
+
+## 0.使用
+### Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:  
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+### Step 2. Add the dependency
+
+	dependencies {
+        compile 'com.github.EthanCo:Search_Layout:1.1.2'
+	}
+
 
 ![示意图](http://upload-images.jianshu.io/upload_images/944365-4b63ff5c2fa72257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -55,44 +76,6 @@
 
 
 # 4. 具体使用
-该款[SearchLayout](https://github.com/Carson-Ho/Search_Layout)使用非常简单，仅需2步：
-
-### 步骤1：导入控件库
-主要有 `Gradle` & `Maven` 2种方式：
-
-- 方式1：`Gradle`引入依赖
-*build.Gradle*
-
-```
-dependencies {
-    compile 'com.carson_ho:SearchLayout:1.0.1'
-}
-```
-
-- 方式2：`Maven`引入依赖
-*pom.xml*
-```
-<dependency>
-  <groupId>com.carson_ho</groupId>
-  <artifactId>SearchLayout</artifactId>
-  <version>1.0.1</version>
-  <type>pom</type>
-</dependency>
-```
-
-
-### 步骤2：设置搜索框样式
-
-- 具体属性设置
-
-
-
-
-![示意图](http://upload-images.jianshu.io/upload_images/944365-ccb751def7c514f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-
-
 
 - 使用示例
 在`XML`文件中进行设置
@@ -102,13 +85,30 @@ dependencies {
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:textSizeSearch="5dp"
-        app:textColorSearch="#3F51B5"
+        app:textSizeSearch="20sp"
+        app:textColorSearch="#9b9b9b"
         app:textHintSearch="输入查询关键字"
-        app:searchBlockHeight="150"
+        app:searchBlockHeight="50dp"
         app:searchBlockColor="#ffffff"
-        />
-```
+        app:backVisible="false" />
+```  
+
+#### 自定义属性说明
+
+		
+	<!--搜索框文字大小(SP)-->
+    <attr name="textSizeSearch" format="dimension"  />
+    <!--搜索框字体颜色-->
+    <attr name="textColorSearch" format="color" />
+    <!--搜索框提示内容-->
+    <attr name="textHintSearch" format="string" />
+
+    <!--搜索框高度 (DP)-->
+    <attr name="searchBlockHeight" format="dimension" />
+    <!--搜索框颜色-->
+    <attr name="searchBlockColor" format="color" />
+    <!--返回按钮是否可见-->
+    <attr name="backVisible" format="boolean"/>
 
 
 ### 步骤3：设置点击键盘上的搜索按键 & 返回按键后的操作
