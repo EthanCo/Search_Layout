@@ -78,26 +78,26 @@ Add it in your root build.gradle at the end of repositories:
 # 4. 具体使用
 
 - 使用示例
-在`XML`文件中进行设置
-*activity_main.xml*
-```
-<scut.carson_ho.searchview.SearchView
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:textSizeSearch="20sp"
-        app:textColorSearch="#9b9b9b"
-        app:textHintSearch="输入查询关键字"
-        app:searchBlockHeight="50dp"
-        app:searchBlockColor="#ffffff"
-        app:backVisible="false" />
-```  
+在`XML`文件中进行设置  
+activity_main.xml  
+#####
+
+	<scut.carson_ho.searchview.SearchView
+	    android:id="@+id/search_view"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    app:backVisible="false"
+	    app:historyEnable="false"
+	    app:searchBlockColor="#ffffff"
+	    app:searchBlockHeight="50dp"
+	    app:textColorSearch="#9b9b9b"
+	    app:textHintSearch="输入查询关键字"
+	    app:textSizeSearch="20sp" />
 
 #### 自定义属性说明
 
-		
-	<!--搜索框文字大小(SP)-->
-    <attr name="textSizeSearch" format="dimension"  />
+    <!--搜索框文字大小(SP)-->
+    <attr name="textSizeSearch" format="dimension" />
     <!--搜索框字体颜色-->
     <attr name="textColorSearch" format="color" />
     <!--搜索框提示内容-->
@@ -108,7 +108,9 @@ Add it in your root build.gradle at the end of repositories:
     <!--搜索框颜色-->
     <attr name="searchBlockColor" format="color" />
     <!--返回按钮是否可见-->
-    <attr name="backVisible" format="boolean"/>
+    <attr name="backVisible" format="boolean" />
+    <!--历史记录是否启用-->
+    <attr name="historyEnable" format="boolean" />
 
 
 ### 步骤3：设置点击键盘上的搜索按键 & 返回按键后的操作
