@@ -2,7 +2,7 @@
 <resources>
     <declare-styleable name="Search_View">
         <!--搜索框文字大小(SP)-->
-        <attr name="textSizeSearch" format="dimension"  />
+        <attr name="textSizeSearch" format="dimension" />
         <!--搜索框字体颜色-->
         <attr name="textColorSearch" format="color" />
         <!--搜索框提示内容-->
@@ -13,6 +13,8 @@
         <!--搜索框颜色-->
         <attr name="searchBlockColor" format="color" />
         <!--返回按钮是否可见-->
-        <attr name="backVisible" format="boolean"/>
+        <attr name="backVisible" format="boolean" />
+        <!--历史记录是否启用-->
+        <attr name="historyEnable" format="boolean" />
     </declare-styleable>
 </resources>

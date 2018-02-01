@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context="scut.carson_ho.search_layout.MainActivity">
 
     <scut.carson_ho.searchview.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:textSizeSearch="20sp"
+        app:backVisible="false"
+        app:historyEnable="false"
+        app:searchBlockColor="#ffffff"
+        app:searchBlockHeight="50dp"
         app:textColorSearch="#9b9b9b"
         app:textHintSearch="输入查询关键字"
-        app:searchBlockHeight="50dp"
-        app:searchBlockColor="#ffffff"
-        app:backVisible="false" />
+        app:textSizeSearch="20sp" />
 </LinearLayout>
