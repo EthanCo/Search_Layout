@@ -3,7 +3,8 @@
 相比源项目优化了  
 - 使用高清图标
 - 可隐藏返回按钮
-- 多屏幕分辨率适配  
+- 多屏幕分辨率适配
+- 可设置文本改变监听  
 
 ## 0.使用
 ### Step 1. Add the JitPack repository to your build file
@@ -19,7 +20,7 @@ Add it in your root build.gradle at the end of repositories:
 ### Step 2. Add the dependency
 
 	dependencies {
-        compile 'com.github.EthanCo:Search_Layout:1.1.2'
+        compile 'com.github.EthanCo:Search_Layout:1.1.3'
 	}
 
 
