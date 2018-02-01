@@ -37,7 +37,6 @@ public class SearchView extends LinearLayout {
     private LinearLayout search_block; // 搜索框布局
     private ImageView searchBack; // 返回按键
 
-
     // ListView列表 & 适配器
     private SearchListView listView;
     private BaseAdapter adapter;
@@ -53,13 +52,16 @@ public class SearchView extends LinearLayout {
 
     // 自定义属性设置
     // 1. 搜索字体属性设置：大小、颜色 & 默认提示
-    private Float textSizeSearch;
+    private int textSizeSearch;
     private int textColorSearch;
     private String textHintSearch;
 
     // 2. 搜索框设置：高度 & 颜色
-    private int searchBlockHeight;
+    private float searchBlockHeight;
     private int searchBlockColor;
+
+    // 返回按键是否可见
+    private boolean searchBackVisible;
 
     /**
      * 构造函数
@@ -94,8 +96,9 @@ public class SearchView extends LinearLayout {
         // 控件资源名称
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.Search_View);
 
-        // 搜索框字体大小（dp）
-        textSizeSearch = typedArray.getDimension(R.styleable.Search_View_textSizeSearch, 20);
+        // 搜索框字体大小（PX）
+        float textSizeSearchSp = typedArray.getDimension(R.styleable.Search_View_textSizeSearch, 20);
+        textSizeSearch = DensityUtils.px2sp(getContext(), textSizeSearchSp);
 
         // 搜索框字体颜色（使用十六进制代码，如#333、#8e8e8e）
         int defaultColor = context.getResources().getColor(R.color.colorText); // 默认颜色 = 灰色
@@ -105,11 +108,14 @@ public class SearchView extends LinearLayout {
         textHintSearch = typedArray.getString(R.styleable.Search_View_textHintSearch);
 
         // 搜索框高度
-        searchBlockHeight = typedArray.getInteger(R.styleable.Search_View_searchBlockHeight, 150);
+        searchBlockHeight = typedArray.getDimension(R.styleable.Search_View_searchBlockHeight, 50);
 
         // 搜索框颜色
         int defaultColor2 = context.getResources().getColor(R.color.colorDefault); // 默认颜色 = 白色
         searchBlockColor = typedArray.getColor(R.styleable.Search_View_searchBlockColor, defaultColor2);
+
+        //返回按钮是否可见
+        searchBackVisible = typedArray.getBoolean(R.styleable.Search_View_backVisible, true);
 
         // 释放资源
         typedArray.recycle();
@@ -231,6 +237,13 @@ public class SearchView extends LinearLayout {
             }
         });
 
+        if (!searchBackVisible) {
+            searchBack.setVisibility(GONE);
+            LinearLayout.LayoutParams lp = (LayoutParams) et_search.getLayoutParams();
+            int leftMarge = DensityUtils.dp2px(getContext(), 10);
+            lp.setMargins(leftMarge, lp.topMargin, lp.rightMargin, lp.bottomMargin);
+            et_search.setLayoutParams(lp);
+        }
     }
 
 
@@ -251,7 +264,7 @@ public class SearchView extends LinearLayout {
         // 3. 搜索框背景颜色
         search_block = (LinearLayout)findViewById(R.id.search_block);
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) search_block.getLayoutParams();
-        params.height = searchBlockHeight;
+        params.height = (int) searchBlockHeight;
         search_block.setBackgroundColor(searchBlockColor);
         search_block.setLayoutParams(params);
 
