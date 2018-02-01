@@ -49,6 +49,7 @@ public class SearchView extends LinearLayout {
     // 回调接口
     private ICallBack mCallBack;// 搜索按键回调接口
     private bCallBack bCallBack; // 返回按键回调接口
+    private TextChangeCallBack textChangeCallBack; //当输入文字改变
 
     // 自定义属性设置
     // 1. 搜索字体属性设置：大小、颜色 & 默认提示
@@ -195,7 +196,9 @@ public class SearchView extends LinearLayout {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                if (textChangeCallBack != null) {
+                    textChangeCallBack.onTextChange(s,start, before, count);
+                }
             }
 
             // 输入文本后调用该方法
@@ -361,6 +364,15 @@ public class SearchView extends LinearLayout {
      */
     public void setOnClickBack(bCallBack bCallBack) {
         this.bCallBack = bCallBack;
+    }
+
+    /**
+     * 设置文本改变回调
+     *
+     * @param textChangeCallBack
+     */
+    public void setOnTextChangeCallBack(TextChangeCallBack textChangeCallBack) {
+        this.textChangeCallBack = textChangeCallBack;
     }
 
     /**

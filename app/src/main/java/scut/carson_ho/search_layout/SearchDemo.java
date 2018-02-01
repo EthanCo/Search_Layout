@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import scut.carson_ho.searchview.ICallBack;
 import scut.carson_ho.searchview.SearchView;
+import scut.carson_ho.searchview.TextChangeCallBack;
 import scut.carson_ho.searchview.bCallBack;
 
 /**
@@ -42,7 +43,13 @@ public class SearchDemo extends AppCompatActivity {
             }
         });
 
-
+        // 6.设置文本改变回调
+        searchView.setOnTextChangeCallBack(new TextChangeCallBack() {
+            @Override
+            public void onTextChange(CharSequence text, int start, int before, int count) {
+                System.out.println("文本改变:" + text);
+            }
+        });
 
     }
 }
