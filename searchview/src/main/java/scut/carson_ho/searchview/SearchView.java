@@ -294,6 +294,7 @@ public class SearchView extends LinearLayout {
      */
     private void queryData(String tempName) {
         if (!historyEnable) {
+            tv_clear.setVisibility(GONE);
             return;
         }
 
