@@ -149,11 +149,7 @@ public class SearchView extends LinearLayout {
         tv_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // 清空数据库->>关注2
-                deleteData();
-                // 模糊搜索空字符 = 显示所有的搜索历史（此时是没有搜索记录的）
-                queryData("");
+               clearText();
             }
         });
 
@@ -392,5 +388,15 @@ public class SearchView extends LinearLayout {
      */
     public void setHistoryEnable(boolean historyEnable) {
         isHistoryEnable = historyEnable;
+    }
+
+    /**
+     * 清空输入框
+     */
+    public void clearText(){
+        // 清空数据库->>关注2
+        deleteData();
+        // 模糊搜索空字符 = 显示所有的搜索历史（此时是没有搜索记录的）
+        queryData("");
     }
 }
