@@ -2,6 +2,8 @@ package scut.carson_ho.search_layout;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import scut.carson_ho.searchview.ICallBack;
 import scut.carson_ho.searchview.SearchView;
@@ -51,5 +53,13 @@ public class SearchDemo extends AppCompatActivity {
             }
         });
 
+
+        final Button btnCearData = (Button) findViewById(R.id.btn_clear_data);
+        btnCearData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchView.clearText();
+            }
+        });
     }
 }

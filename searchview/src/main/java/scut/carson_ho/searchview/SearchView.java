@@ -149,7 +149,10 @@ public class SearchView extends LinearLayout {
         tv_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               clearText();
+                // 清空数据库->>关注2
+                deleteData();
+                // 模糊搜索空字符 = 显示所有的搜索历史（此时是没有搜索记录的）
+                queryData("");
             }
         });
 
@@ -193,7 +196,7 @@ public class SearchView extends LinearLayout {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (textChangeCallBack != null) {
-                    textChangeCallBack.onTextChange(s,start, before, count);
+                    textChangeCallBack.onTextChange(s, start, before, count);
                 }
             }
 
@@ -393,10 +396,16 @@ public class SearchView extends LinearLayout {
     /**
      * 清空输入框
      */
-    public void clearText(){
-        // 清空数据库->>关注2
-        deleteData();
-        // 模糊搜索空字符 = 显示所有的搜索历史（此时是没有搜索记录的）
-        queryData("");
+    public void clearText() {
+        et_search.setText("");
+    }
+
+    /**
+     * 设置文字
+     *
+     * @param text
+     */
+    public void setText(CharSequence text) {
+        et_search.setText(text);
     }
 }

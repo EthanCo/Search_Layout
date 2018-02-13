@@ -19,4 +19,10 @@
         app:textColorSearch="#9b9b9b"
         app:textHintSearch="输入查询关键字"
         app:textSizeSearch="20sp" />
+
+    <Button
+        android:id="@+id/btn_clear_data"
+        android:text="清除数据"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
